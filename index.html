@@ -69,8 +69,8 @@ function loadProgressHandler(loader, resource) {
   if(loadanimfinished==false){loadanim();}
   console.log("loading: " + resource.url)
   console.log("progress: " + loader.progress + "%")
-  loadtext[0].text="Loading File:" + resource.url
-  loadtext[1].text="Overall Progress %" + loader.progress
+  loadtext[0].text="Loaded File:" + resource.url
+  loadtext[1].text="Overall Progress " + loader.progress + "%"
 }
 function setup() {
   console.log("All Files Loaded")
