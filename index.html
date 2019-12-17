@@ -49,20 +49,21 @@ function loadanim(){
   let sheet = PIXI.loader.resources["Images/Load/loadanim.json"].spritesheet
   loading = new PIXI.extras.AnimatedSprite(sheet.animations["load"])
   loading.animationSpeed = .15000020050324
-  loading.scale.set(3,3)
+  loading.width=r("W",200)
+  loading.height=r("W",200)
   loading.x=Width/2-loading.width/2
   loading.y=Height/6
   loading.play()
   let loadtextstyle = new PIXI.TextStyle({
     fill: "white",
-    fontSize: 50
+    fontSize: r("W", 25)
   });
   loadtext[0] = new PIXI.Text("Loading",loadtextstyle)
   loadtext[1] = new PIXI.Text("Please Wait",loadtextstyle)
-  loadtext[0].y=Height/2+70;
-  loadtext[1].y=Height/2+140;
+  loadtext[0].y=Height/2+r("H",90);
+  loadtext[1].y=Height/2+r("H",160);
   for(let i=0; i<2; i++){
-    loadtext[i].x=Width/4;
+    loadtext[i].x=r("W",265);
     app.stage.addChild(loadtext[i])
   }
   app.stage.addChild(loading)
@@ -77,6 +78,16 @@ function loadProgressHandler(loader, resource) {
 }
 function setup() {
   console.log("All Files Loaded")
+}
+function r(mode, value){//r relevant to screen size, made for ease of programming so code will function on different size screens
+  let out;
+  if(mode == "W"){//width
+    out = value * Width/1000
+  }
+  if(mode == "H"){//height
+    out = value * Height/1000
+  }
+  return out;
 }
   </script>
 </body>
