@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Game</title>
+</head>
+  <script src="pixi/pixi.min.js"></script>
+  <style>* {padding: 0; margin: 0}</style>
+<body>
+  <script type="text/javascript">
+let type = "WebGL"
+if(!PIXI.utils.isWebGLSupported()){
+  type = "canvas"
+}
+//This program is made by Corin Acton
+let Application = PIXI.Application,
+    loader = PIXI.loader,
+    resources = PIXI.loader.resources,
+    TextureCache = PIXI.utils.TextureCache
+    Sprite = PIXI.Sprite,
+    Container = PIXI.Container;
+
+let app = new Application({
+    width: 256,
+    height: 256,
+    antialias: true,
+    transparent: false,
+    resolution: 1
+  }
+);
+
+document.body.appendChild(app.view);
+app.renderer.view.style.position = "absolute";
+app.renderer.view.style.display = "block";
+app.renderer.autoResize = true;
+app.renderer.resize(window.innerWidth, window.innerHeight);
+
+let Width = app.renderer.view.width,
+    Height = app.renderer.view.height,
+    stage = app.stage;
+
+loader
+  .add("Images/Load/loadanim.json")
+  .add("Images/Clothes/Items.json")
+  .on("progress", loadProgressHandler)
+  .load(setup);
+  let loadanimfinished=false, loadtext=[];
+function loadanim(){
+  let sheet = PIXI.loader.resources["Images/Load/loadanim.json"].spritesheet
+  loading = new PIXI.extras.AnimatedSprite(sheet.animations["load"])
+  loading.animationSpeed = .15000020050324
+  loading.scale.set(2,2)
+  loading.x=Width/2-loading.width/2
+  loading.y=Height/4
+  loading.play()
+  let loadtextstyle = new PIXI.TextStyle({fill: "white"});
+  loadtext[0] = new PIXI.Text("Loading",loadtextstyle)
+  loadtext[1] = new PIXI.Text("Please Wait",loadtextstyle)
+  loadtext[0].y=Height/2;
+  loadtext[1].y=Height/2+50;
+  for(let i=0; i<2; i++){
+    loadtext[i].x=Width/3;
+    app.stage.addChild(loadtext[i])
+  }
+  app.stage.addChild(loading)
+  loadanimfinished=true
+}
+function loadProgressHandler(loader, resource) {
+  if(loadanimfinished==false){loadanim();}
+  console.log("loading: " + resource.url)
+  console.log("progress: " + loader.progress + "%")
+  loadtext[0].text="Loading File:" + resource.url
+  loadtext[1].text="Overall Progress %" + loader.progress
+}
+function setup() {
+  console.log("All Files Loaded")
+}
+  </script>
+</body>
+</html>
