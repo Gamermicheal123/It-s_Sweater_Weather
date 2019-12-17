@@ -59,8 +59,8 @@ function loadanim(){
   });
   loadtext[0] = new PIXI.Text("Loading",loadtextstyle)
   loadtext[1] = new PIXI.Text("Please Wait",loadtextstyle)
-  loadtext[0].y=Height/2;
-  loadtext[1].y=Height/2+70;
+  loadtext[0].y=Height/2+70;
+  loadtext[1].y=Height/2+140;
   for(let i=0; i<2; i++){
     loadtext[i].x=Width/4;
     app.stage.addChild(loadtext[i])
