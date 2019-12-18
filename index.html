@@ -37,7 +37,8 @@ app.renderer.resize(window.innerWidth, window.innerHeight);
 
 let Width = app.renderer.view.width,
     Height = app.renderer.view.height,
-    stage = app.stage;
+    stage = app.stage,
+    Mousepos = app.renderer.plugins.interaction.mouse.global;
 
 loader
   .add("Images/Load/loadanim.json")
@@ -76,8 +77,26 @@ function loadProgressHandler(loader, resource) {
   loadtext[0].text="Loaded File:" + resource.url
   loadtext[1].text="Overall Progress " + loader.progress + "%"
 }
+let state;
 function setup() {
   console.log("All Files Loaded")
+  loadtext[0].text="All Files Loaded"
+  loadtext[1].text="Starting up..."
+  id = resources["Images/Clothing/Items.json"].textures;
+  for(let i = 0; i<amountOfItems; i++){
+     item = new Sprite(id["Clothing ("+i+").png"]);
+     respawn(item);
+     items.push(item);
+     app.stage.addChild(item);
+  }
+  state = play
+  app.ticker.add(delta => gameloop(delta));
+}
+function gameloop(delta){
+  state(delta);
+}
+function play(delta){
+  
 }
 function r(mode, value){//r relevant to screen size, made for ease of programming so code will function on different size screens
   let out;
