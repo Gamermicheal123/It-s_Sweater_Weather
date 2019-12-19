@@ -53,7 +53,7 @@ function loadanim(){
   loading.width=r("W",200)
   loading.height=r("W",200)
   loading.x=Width/2-loading.width/2
-  loading.y=Height/6
+  loading.y=r("H",140)
   loading.play()
   let loadtextstyle = new PIXI.TextStyle({
     fill: "white",
@@ -61,8 +61,8 @@ function loadanim(){
   });
   loadtext[0] = new PIXI.Text("Loading",loadtextstyle)
   loadtext[1] = new PIXI.Text("Please Wait",loadtextstyle)
-  loadtext[0].y=Height/2+r("H",90);
-  loadtext[1].y=Height/2+r("H",160);
+  loadtext[0].y=Height/2+r("H",120);
+  loadtext[1].y=Height/2+r("H",200);
   for(let i=0; i<2; i++){
     loadtext[i].x=r("W",265);
     app.stage.addChild(loadtext[i])
@@ -96,7 +96,7 @@ function gameloop(delta){
   state(delta);
 }
 function play(delta){
-  
+
 }
 function r(mode, value){//r relevant to screen size, made for ease of programming so code will function on different size screens
   let out;
