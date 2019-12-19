@@ -2,7 +2,7 @@
 
 "Clothing (0).png":
 {
-	"frame": {"x":2208,"y":1173,"w":1032,"h":1493},
+	"frame": {"x":5546,"y":0,"w":1032,"h":1493},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1032,"h":1493},
@@ -10,7 +10,7 @@
 },
 "Clothing (1).png":
 {
-	"frame": {"x":1113,"y":2777,"w":900,"h":1625},
+	"frame": {"x":3699,"y":0,"w":900,"h":1625},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":900,"h":1625},
@@ -18,7 +18,7 @@
 },
 "Clothing (2).png":
 {
-	"frame": {"x":5552,"y":2777,"w":1398,"h":2017},
+	"frame": {"x":5840,"y":3216,"w":1398,"h":2017},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1398,"h":2017},
@@ -26,7 +26,7 @@
 },
 "Clothing (3).png":
 {
-	"frame": {"x":0,"y":1173,"w":621,"h":1313},
+	"frame": {"x":0,"y":0,"w":621,"h":1313},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":621,"h":1313},
@@ -34,7 +34,7 @@
 },
 "Clothing (4).png":
 {
-	"frame": {"x":0,"y":0,"w":2025,"h":902},
+	"frame": {"x":1560,"y":1627,"w":2025,"h":902},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":2025,"h":902},
@@ -42,7 +42,7 @@
 },
 "Clothing (5).png":
 {
-	"frame": {"x":6005,"y":0,"w":1669,"h":1173},
+	"frame": {"x":3585,"y":1627,"w":1669,"h":1173},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1669,"h":1173},
@@ -50,7 +50,7 @@
 },
 "Clothing (6).png":
 {
-	"frame": {"x":598,"y":2777,"w":515,"h":1616},
+	"frame": {"x":621,"y":0,"w":515,"h":1616},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":515,"h":1616},
@@ -58,7 +58,7 @@
 },
 "Clothing (7).png":
 {
-	"frame": {"x":4867,"y":1173,"w":1302,"h":1589},
+	"frame": {"x":5254,"y":1627,"w":1302,"h":1589},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1302,"h":1589},
@@ -66,7 +66,7 @@
 },
 "Clothing (8).png":
 {
-	"frame": {"x":2025,"y":0,"w":941,"h":1003},
+	"frame": {"x":1136,"y":0,"w":941,"h":1003},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":941,"h":1003},
@@ -74,7 +74,7 @@
 },
 "Clothing (9).png":
 {
-	"frame": {"x":621,"y":1173,"w":1587,"h":1364},
+	"frame": {"x":6556,"y":1627,"w":1587,"h":1364},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1587,"h":1364},
@@ -82,7 +82,7 @@
 },
 "Clothing (10).png":
 {
-	"frame": {"x":2960,"y":2777,"w":1473,"h":1652},
+	"frame": {"x":1119,"y":3216,"w":1473,"h":1652},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1473,"h":1652},
@@ -90,7 +90,7 @@
 },
 "Clothing (11).png":
 {
-	"frame": {"x":3240,"y":1173,"w":1627,"h":1514},
+	"frame": {"x":2592,"y":3216,"w":1627,"h":1514},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1627,"h":1514},
@@ -98,7 +98,7 @@
 },
 "Clothing (12).png":
 {
-	"frame": {"x":2966,"y":0,"w":1479,"h":1127},
+	"frame": {"x":6578,"y":0,"w":1479,"h":1127},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1479,"h":1127},
@@ -106,7 +106,7 @@
 },
 "Clothing (13).png":
 {
-	"frame": {"x":4433,"y":2777,"w":1119,"h":1999},
+	"frame": {"x":0,"y":3216,"w":1119,"h":1999},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1119,"h":1999},
@@ -114,7 +114,7 @@
 },
 "Clothing (14).png":
 {
-	"frame": {"x":4445,"y":0,"w":1560,"h":1170},
+	"frame": {"x":0,"y":1627,"w":1560,"h":1170},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1560,"h":1170},
@@ -122,7 +122,7 @@
 },
 "Clothing (15).png":
 {
-	"frame": {"x":2013,"y":2777,"w":947,"h":1627},
+	"frame": {"x":4599,"y":0,"w":947,"h":1627},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":947,"h":1627},
@@ -130,7 +130,7 @@
 },
 "Clothing (16).png":
 {
-	"frame": {"x":6169,"y":1173,"w":1621,"h":1604},
+	"frame": {"x":4219,"y":3216,"w":1621,"h":1604},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1621,"h":1604},
@@ -138,19 +138,27 @@
 },
 "Clothing (17).png":
 {
-	"frame": {"x":0,"y":2777,"w":598,"h":1604},
+	"frame": {"x":2077,"y":0,"w":598,"h":1604},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":598,"h":1604},
 	"sourceSize": {"w":598,"h":1604}
+},
+"itemBox.png":
+{
+	"frame": {"x":2675,"y":0,"w":1024,"h":1024},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1024,"h":1024},
+	"sourceSize": {"w":1024,"h":1024}
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "Items.png",
 	"format": "RGBA8888",
-	"size": {"w":7790,"h":4794},
+	"size": {"w":8143,"h":5233},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:2774b28cd7024525bcbe14dd5b111c4a:ad43d5da65bd0e847a014ee224d1d8b7:2ebf2dcb1abfb8c7e2f226246503c699$"
+	"smartupdate": "$TexturePacker:SmartUpdate:9da65edb000133cece6600aa25c2d04b:fa4ccc7c02163735b3b8936079f0a6ee:e6844a27e364e41b6ff4e09f3909db66$"
 }
 }

@@ -39,7 +39,6 @@ let Width = app.renderer.view.width,
     Height = app.renderer.view.height,
     stage = app.stage,
     Mousepos = app.renderer.plugins.interaction.mouse.global;
-
 loader
   .add("Images/Load/loadanim.json")
   .add("Images/Clothes/Items.json")
@@ -77,18 +76,20 @@ function loadProgressHandler(loader, resource) {
   loadtext[0].text="Loaded File:" + resource.url
   loadtext[1].text="Overall Progress " + loader.progress + "%"
 }
-let state, amountOfItems=18, item, items = [];
+let state, amountOfItems=18, itemsprite, items = [], item;
 function setup() {
   console.log("All Files Loaded")
   loadtext[0].text="All Files Loaded"
   loadtext[1].text="Starting up..."
   id = resources["Images/Clothes/Items.json"].textures;
   for(let i = 0; i<amountOfItems; i++){
-     item = new Sprite(id["Clothing ("+i+").png"]);
+     itemsprite = new Sprite(id["Clothing ("+i+").png"]);
+     item = new Container();
+     boxify(50,itemsprite,item,5)
      items.push(item);
-     app.stage.addChild(item);
-     item.width = sts("W",item,200)
-     item.height = scndout
+     item.x=i*r("W",50)
+     item.interactive = true;
+     item.on('pointerdown', onClick);
   }
   state = play
   app.renderer.backgroundColor=0x00BF97
@@ -102,6 +103,13 @@ function gameloop(delta){
 function play(delta){
 
 }
+let wot=0;
+function onClick(){
+  item.x -= 5;
+  item.y +=8;
+  wot += .1;
+  item.scale.set(wot,wot)
+}
 function r(mode, value){//r relevant to screen size, made for ease of programming so code will function on different size screens
   let out;
   if(mode == "W"){//width
@@ -111,17 +119,33 @@ function r(mode, value){//r relevant to screen size, made for ease of programmin
   }
   return out;
 }
-let scndout;
 function sts(mode,object,value){
-  let out
   if(mode == "W"){
-    out = r("W",value)
-    scndout = r("W",value)*(object.height/object.width)
+    object.height = r("W",value)*(object.height/object.width)
+    object.width = r("W",value)
   }else if(mode =="H"){
-    out = r("H",value)*(object.width/object.height)
-    scndout = r("H",value)
+    object.width = r("H",value)*(object.width/object.height)
+    object.height = r("H",value)
+  }else if(mode == "BoxifyHeight"){
+    object.width = r("W",value)*(object.width/object.height)
+    object.height = r("W",value)
   }
-  return out;
+}
+function boxify(size,object,boxname,edgeMargin){
+  box = new Sprite(id["itemBox.png"]);
+  sts("W",box,50)
+  boxname.addChild(box)
+  boxname.addChild(object)
+  if(object.width>object.height){
+    sts("W",object,size-edgeMargin*2)
+    object.x=r("W",edgeMargin)
+    object.y=r("W",size/2)-object.height/2
+  }else{
+    sts("BoxifyHeight",object,size-edgeMargin*2)
+    object.x=r("W",size/2)-object.width/2
+    object.y=r("W",edgeMargin)
+  }
+  app.stage.addChild(boxname)
 }
   </script>
 </body>
