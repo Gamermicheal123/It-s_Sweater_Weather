@@ -77,19 +77,23 @@ function loadProgressHandler(loader, resource) {
   loadtext[0].text="Loaded File:" + resource.url
   loadtext[1].text="Overall Progress " + loader.progress + "%"
 }
-let state;
+let state, amountOfItems=18, item, items = [];
 function setup() {
   console.log("All Files Loaded")
   loadtext[0].text="All Files Loaded"
   loadtext[1].text="Starting up..."
-  id = resources["Images/Clothing/Items.json"].textures;
+  id = resources["Images/Clothes/Items.json"].textures;
   for(let i = 0; i<amountOfItems; i++){
      item = new Sprite(id["Clothing ("+i+").png"]);
-     respawn(item);
      items.push(item);
      app.stage.addChild(item);
+     item.width = sts("W",item,200)
+     item.height = scndout
   }
   state = play
+  app.renderer.backgroundColor=0x00BF97
+  app.stage.removeChild(loading)
+  for(let i=0; i<2; i++){app.stage.removeChild(loadtext[i])}
   app.ticker.add(delta => gameloop(delta));
 }
 function gameloop(delta){
@@ -102,9 +106,20 @@ function r(mode, value){//r relevant to screen size, made for ease of programmin
   let out;
   if(mode == "W"){//width
     out = value * Width/1000
-  }
-  if(mode == "H"){//height
+  }else if(mode == "H"){//height
     out = value * Height/1000
+  }
+  return out;
+}
+let scndout;
+function sts(mode,object,value){
+  let out
+  if(mode == "W"){
+    out = r("W",value)
+    scndout = r("W",value)*(object.height/object.width)
+  }else if(mode =="H"){
+    out = r("H",value)*(object.width/object.height)
+    scndout = r("H",value)
   }
   return out;
 }
