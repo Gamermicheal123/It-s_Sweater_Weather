@@ -103,12 +103,13 @@ function gameloop(delta){
 function play(delta){
 
 }
-let wot=0;
+let wot=1;
 function onClick(){
   item.x -= 5;
-  item.y +=8;
+  this.x -= 5;
+  this.y +=8;
   wot += .1;
-  item.scale.set(wot,wot)
+  this.scale.set(wot,wot)
 }
 function r(mode, value){//r relevant to screen size, made for ease of programming so code will function on different size screens
   let out;
