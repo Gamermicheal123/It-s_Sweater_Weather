@@ -88,8 +88,7 @@ function setup() {
      boxify(50,itemsprite,item,5)
      items.push(item);
      item.x=i*r("W",50)
-     item.interactive = true;
-     item.on('pointerdown', onClick);
+     createDragAndDropFor(item)
   }
   state = play
   app.renderer.backgroundColor=0x00BF97
@@ -102,13 +101,6 @@ function gameloop(delta){
 }
 function play(delta){
 
-}
-let wot=1;
-function onClick(){
-  this.x -= 5;
-  this.y +=8;
-  wot += .1;
-  this.scale.set(wot,wot)
 }
 function r(mode, value){//r relevant to screen size, made for ease of programming so code will function on different size screens
   let out;
@@ -135,7 +127,6 @@ function boxify(size,object,boxname,edgeMargin){
   box = new Sprite(id["itemBox.png"]);
   sts("W",box,50)
   boxname.addChild(box)
-  boxname.addChild(object)
   if(object.width>object.height){
     sts("W",object,size-edgeMargin*2)
     object.x=r("W",edgeMargin)
@@ -146,6 +137,24 @@ function boxify(size,object,boxname,edgeMargin){
     object.y=r("W",edgeMargin)
   }
   app.stage.addChild(boxname)
+}
+let drag = false, Xoff, Yoff;
+function createDragAndDropFor(target){
+  target.interactive = true;
+  target.on("mousedown", function(e){
+    drag = target;
+    Xoff=Mousepos.x-drag.x;
+    Yoff=Mousepos.y-drag.y;
+  })
+  target.on("mouseup", function(e){
+    drag = false;
+  })
+  target.on("mousemove", function(e){
+    if(drag){
+      drag.position.x = Mousepos.x-Xoff;
+      drag.position.y = Mousepos.y-Yoff;
+    }
+  })
 }
   </script>
 </body>
