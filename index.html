@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Game</title>
+  <title>Corin Acton</title>
 </head>
   <script src="pixi/pixi.min.js"></script>
   <style>* {padding: 0; margin: 0}</style>
@@ -20,7 +20,7 @@ let Application = PIXI.Application,
     Sprite = PIXI.Sprite,
     Container = PIXI.Container;
 
-let app = new Application({
+const app = new Application({
     width: 256,
     height: 256,
     antialias: true,
@@ -49,21 +49,21 @@ function loadanim(){
   let sheet = PIXI.loader.resources["Images/Load/loadanim.json"].spritesheet
   loading = new PIXI.extras.AnimatedSprite(sheet.animations["load"])
   loading.animationSpeed = .15000020050324
-  loading.width=r("W",200)
-  loading.height=r("W",200)
+  loading.width=Width/5
+  loading.height=Width/5
   loading.x=Width/2-loading.width/2
-  loading.y=r("H",140)
+  loading.y=Height*140/1000
   loading.play()
   let loadtextstyle = new PIXI.TextStyle({
     fill: "white",
-    fontSize: r("W", 25)
+    fontSize: Width/40
   });
   loadtext[0] = new PIXI.Text("Loading",loadtextstyle)
   loadtext[1] = new PIXI.Text("Please Wait",loadtextstyle)
-  loadtext[0].y=Height/2+r("H",120);
-  loadtext[1].y=Height/2+r("H",200);
+  loadtext[0].y=Height/2+Height*140/1000
+  loadtext[1].y=Height/2+Height/5
   for(let i=0; i<2; i++){
-    loadtext[i].x=r("W",265);
+    loadtext[i].x=Width*265/1000
     app.stage.addChild(loadtext[i])
   }
   app.stage.addChild(loading)
@@ -85,9 +85,9 @@ function setup() {
   for(let i = 0; i<amountOfItems; i++){
      itemsprite = new Sprite(id["Clothing ("+i+").png"]);
      item = new Container();
-     boxify(50,itemsprite,item,5)
+     boxify("W",Width/20,itemsprite,item,Width/200)
      items.push(item);
-     item.x=i*r("W",50)
+     item.x=i*Width/20
      createDragAndDropFor(item)
   }
   state = play
@@ -102,40 +102,28 @@ function gameloop(delta){
 function play(delta){
 
 }
-function r(mode, value){//r relevant to screen size, made for ease of programming so code will function on different size screens
-  let out;
-  if(mode == "W"){//width
-    out = value * Width/1000
-  }else if(mode == "H"){//height
-    out = value * Height/1000
-  }
-  return out;
-}
 function sts(mode,object,value){
   if(mode == "W"){
-    object.height = r("W",value)*(object.height/object.width)
-    object.width = r("W",value)
+    object.height = value*(object.height/object.width)
+    object.width = value
   }else if(mode =="H"){
-    object.width = r("H",value)*(object.width/object.height)
-    object.height = r("H",value)
-  }else if(mode == "BoxifyHeight"){
-    object.width = r("W",value)*(object.width/object.height)
-    object.height = r("W",value)
+    object.width = value*(object.width/object.height)
+    object.height = value
   }
 }
-function boxify(size,object,boxname,edgeMargin){
+function boxify(mode,size,object,boxname,edgeMargin){
   box = new Sprite(id["itemBox.png"]);
-  sts("W",box,50)
+  sts(mode,box,size)
   boxname.addChild(box)
   boxname.addChild(object)
   if(object.width>object.height){
-    sts("W",object,size-edgeMargin*2)
-    object.x=r("W",edgeMargin)
-    object.y=r("W",size/2)-object.height/2
+    sts(mode,object,size-edgeMargin*2)
+    object.x=edgeMargin
+    object.y=size/2-object.height/2
   }else{
-    sts("BoxifyHeight",object,size-edgeMargin*2)
-    object.x=r("W",size/2)-object.width/2
-    object.y=r("W",edgeMargin)
+    sts("H",object,size-edgeMargin*2)
+    object.x=size/2-object.width/2
+    object.y=edgeMargin
   }
   app.stage.addChild(boxname)
 }
